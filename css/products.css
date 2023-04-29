@@ -1,0 +1,242 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* LOGO */
+
+.site-logo {
+  font-weight: 900;
+  font-size: 2.3rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* NAVIGATION */
+
+header {
+  --text: #333;
+  --text-inverse: #f4f4f4;
+  --background: #f4f4f4;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em;
+}
+
+.nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav__link {
+  --spacing: 1em;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.nav__link:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: var(--spacing);
+  right: var(--spacing);
+  height: 2px;
+  background: currentColor;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+.nav__link:hover::after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.home-intro {
+  padding: 12vh 0;
+  background: rgb(197, 195, 184) url('background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* PRODUCTS */
+
+#product-box {
+  margin: 6vh;
+  text-align: center;
+  top: 50vh;
+  left: 0;
+  margin-left: 5%;
+  width: 90%;
+  height: 128vh;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-top-left-radius: 4vh;
+  border-bottom-left-radius: 4vh;
+  z-index: -1;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: gainsboro;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(153, 147, 147);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(121, 119, 119);
+}
+
+#product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 40vh);
+  grid-gap: 0.5vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#product-grid img {
+  max-width: 100%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+.product img {
+  border-radius: 2vh;
+  height: 45vh;
+  width: 35vh;
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.product img:hover{
+  transform: scale(1.05);
+  filter: brightness(90%);
+}
+
+/* SEARCH BAR */
+
+#search-input {
+  width: 30%;
+  height: 40px;
+  padding: 12px 20px;
+  margin: 4vh;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 1px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  color: #333;
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+#search-input:hover {
+  border: 2px solid #555;
+}
+
+#search-input:focus {
+  border: 2px solid #555;
+  outline: none;
+  width: 60%;
+}
+
+#search-input::placeholder {
+  color: #555;
+}
+
+
+/* RESPONSIVE PAGE */
+
+@media (max-width: 1340px) {
+  #product-grid {
+    grid-template-columns: repeat(3, 40vh);
+  }
+  #search-input {
+    width:50%;
+  }
+}
+
+@media (max-width: 992px) {
+  #product-grid {
+    grid-template-columns: repeat(2, 40vh);
+  }
+
+  #search-input {
+    width:40%;
+  }
+}
+
+@media (max-width: 768px) {
+  #product-grid {
+    grid-template-columns: repeat(1, 40vh);
+  }
+
+  .nav__link {
+    font-size: 0.6rem;
+  }
+
+  .site-logo{
+    font-size: 1rem;
+  }
+
+  #search-input {
+    width:30%;
+  }
+}
+
+@media (max-width: 600px){
+  .nav__link {
+    font-size: 0.5rem;
+  }
+
+  .site-logo{
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px){
+  .nav__link {
+    font-size: 0.4rem;
+  }
+
+  .site-logo{
+    font-size: 0.8rem;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
